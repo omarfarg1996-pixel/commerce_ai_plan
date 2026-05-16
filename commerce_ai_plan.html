@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خطة تطبيق Commerce AI Automation</title>
+  <style>
+    :root {
+      --bg: #f5f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #10b981;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --border: #e5e7eb;
+      --soft-blue: #eff6ff;
+      --soft-green: #ecfdf5;
+      --soft-orange: #fffbeb;
+      --soft-purple: #f5f3ff;
+      --shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Tahoma", "Arial", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.85;
+    }
+
+    .page {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 28px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0f172a 0%, #1d4ed8 55%, #2563eb 100%);
+      color: white;
+      border-radius: 28px;
+      padding: 46px 42px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 360px;
+      height: 360px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.09);
+      left: -120px;
+      top: -120px;
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .badge {
+      display: inline-block;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.14);
+      border: 1px solid rgba(255,255,255,0.22);
+      font-size: 14px;
+      margin-bottom: 18px;
+    }
+
+    h1, h2, h3 { margin-top: 0; line-height: 1.35; }
+
+    h1 {
+      font-size: 42px;
+      margin-bottom: 14px;
+    }
+
+    .hero p {
+      font-size: 19px;
+      max-width: 880px;
+      color: #e5edff;
+      margin-bottom: 0;
+    }
+
+    .section {
+      margin-top: 28px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 30px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.045);
+    }
+
+    .section h2 {
+      font-size: 28px;
+      margin-bottom: 12px;
+      color: #111827;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 17px;
+      margin-top: 0;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+    .card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 22px;
+      min-height: 155px;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      margin-bottom: 8px;
+      color: #111827;
+    }
+
+    .card p { margin: 0; color: var(--muted); }
+
+    .icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 14px;
+      background: var(--soft-blue);
+    }
+
+    .green { background: var(--soft-green); }
+    .orange { background: var(--soft-orange); }
+    .purple { background: var(--soft-purple); }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .step {
+      background: var(--soft-blue);
+      border: 1px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 18px;
+      position: relative;
+      min-height: 145px;
+    }
+
+    .step-number {
+      width: 34px;
+      height: 34px;
+      background: var(--primary);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .step strong { display: block; margin-bottom: 6px; }
+    .step span { color: var(--muted); font-size: 14px; }
+
+    .highlight {
+      background: linear-gradient(135deg, #ecfdf5, #eff6ff);
+      border: 1px solid #bfdbfe;
+      border-radius: 22px;
+      padding: 24px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      margin-top: 16px;
+      background: white;
+    }
+
+    th, td {
+      padding: 16px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f8fafc;
+      color: #111827;
+      font-weight: bold;
+    }
+
+    tr:last-child td { border-bottom: none; }
+
+    .pill {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: var(--soft-blue);
+      color: var(--primary-dark);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .timeline {
+      border-right: 3px solid #dbeafe;
+      margin-right: 12px;
+      padding-right: 24px;
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 18px;
+    }
+
+    .timeline-item::before {
+      content: "";
+      position: absolute;
+      right: -35px;
+      top: 24px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--primary);
+      border: 4px solid #dbeafe;
+    }
+
+    .timeline-item h3 { margin-bottom: 6px; }
+    .timeline-item p { margin: 0; color: var(--muted); }
+
+    .value-box {
+      background: #0f172a;
+      color: white;
+      border-radius: 24px;
+      padding: 30px;
+      margin-top: 28px;
+    }
+
+    .value-box h2 { color: white; }
+    .value-box p { color: #dbeafe; }
+
+    .cta {
+      background: linear-gradient(135deg, #2563eb, #10b981);
+      color: white;
+      border-radius: 28px;
+      padding: 34px;
+      text-align: center;
+      margin-top: 28px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 { color: white; font-size: 30px; }
+    .cta p { color: #ecfeff; font-size: 17px; margin-bottom: 0; }
+
+    .note {
+      background: #fffbeb;
+      border: 1px solid #fde68a;
+      border-radius: 18px;
+      padding: 18px;
+      color: #78350f;
+      margin-top: 16px;
+    }
+
+    .small { font-size: 14px; color: var(--muted); }
+
+    @media (max-width: 980px) {
+      .grid-2, .grid-3, .grid-4, .flow { grid-template-columns: 1fr; }
+      h1 { font-size: 32px; }
+      .hero { padding: 34px 24px; }
+      .page { padding: 16px; }
+    }
+
+    @media print {
+      body { background: white; }
+      .page { max-width: none; padding: 0; }
+      .section, .hero, .cta, .value-box { box-shadow: none; page-break-inside: avoid; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="badge">مقترح مشروع أتمتة ذكية للتجارة الإلكترونية</div>
+        <h1>نظام ذكي لإدارة العملاء، الطلبات، المتابعة، وإعادة البيع</h1>
+        <p>
+          هذا المقترح يوضح فكرة نظام يساعد المتجر على جمع بيانات العملاء والطلبات، فهم سلوك كل عميل، إرسال رسائل متابعة ذكية عبر واتساب، إنشاء مهام لفريق المبيعات، ورفع فرص إعادة الشراء بطريقة منظمة وآمنة.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>ما فكرة النظام ببساطة؟</h2>
+      <p class="lead">
+        النظام يعمل كمساعد ذكي لفريق المبيعات وخدمة العملاء. بدل أن تتم المتابعة يدويًا مع كل عميل، يقوم النظام بقراءة بيانات الطلبات والمحادثات، ثم يقترح أفضل إجراء لكل عميل، ويرسل الرسائل المناسبة بعد تطبيق قواعد واضحة وموافقة بشرية عند الحاجة.
+      </p>
+      <div class="highlight">
+        <strong>الهدف الرئيسي:</strong>
+        زيادة المبيعات المتكررة، تقليل ضياع العملاء، تحسين سرعة المتابعة، وتنظيم التواصل مع العملاء من مكان واحد.
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>المشكلة التي يحلها النظام</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">📦</div>
+          <h3>طلبات كثيرة ومتابعة صعبة</h3>
+          <p>مع زيادة الطلبات يصبح من الصعب معرفة من يحتاج متابعة ومن يمكن إعادة البيع له.</p>
+        </div>
+        <div class="card">
+          <div class="icon orange">💬</div>
+          <h3>رسائل واتساب غير منظمة</h3>
+          <p>كثير من المحادثات تضيع أو لا يتم تصنيفها، وبالتالي تضيع فرص بيع مهمة.</p>
+        </div>
+        <div class="card">
+          <div class="icon green">📊</div>
+          <h3>عدم وضوح أداء الحملات</h3>
+          <p>يصعب معرفة أي حملة جلبت مبيعات، ومن العملاء المهتمين، وما الرسائل التي نجحت.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>كيف سيعمل النظام؟</h2>
+      <p class="lead">الخطوات التالية توضح رحلة العميل داخل النظام من لحظة وصول بياناته حتى المتابعة والبيع.</p>
+      <div class="flow">
+        <div class="step">
+          <div class="step-number">1</div>
+          <strong>جمع البيانات</strong>
+          <span>من المتجر، واتساب، ونظام إدارة العملاء.</span>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <strong>فهم العميل</strong>
+          <span>بناء ملف شامل لكل عميل وسجل طلباته.</span>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <strong>اقتراح ذكي</strong>
+          <span>تحديد العميل المناسب والرسالة المناسبة.</span>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <strong>مراجعة القواعد</strong>
+          <span>منع الرسائل الخاطئة أو الزائدة أو غير المسموحة.</span>
+        </div>
+        <div class="step">
+          <div class="step-number">5</div>
+          <strong>تنفيذ ومتابعة</strong>
+          <span>إرسال واتساب، متابعة الرد، وإنشاء مهمة مبيعات.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>المميزات التي سيحصل عليها العميل</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <div class="icon">👤</div>
+          <h3>ملف شامل لكل عميل</h3>
+          <p>يعرف النظام كل عميل: طلباته، آخر تواصل، اهتماماته، وحالته.</p>
+        </div>
+        <div class="card">
+          <div class="icon green">🔁</div>
+          <h3>إعادة بيع تلقائية</h3>
+          <p>اختيار العملاء المناسبين لحملات إعادة الشراء بدل المتابعة اليدوية.</p>
+        </div>
+        <div class="card">
+          <div class="icon purple">🤖</div>
+          <h3>ذكاء صناعي مساعد</h3>
+          <p>يقترح أفضل رسالة وأفضل عرض حسب تاريخ العميل وسلوكه.</p>
+        </div>
+        <div class="card">
+          <div class="icon orange">🛡️</div>
+          <h3>قواعد أمان قبل الإرسال</h3>
+          <p>لا يتم إرسال رسالة إلا بعد فحص الموافقة، التكرار، الوقت، والمخاطر.</p>
+        </div>
+        <div class="card">
+          <div class="icon">✅</div>
+          <h3>موافقة بشرية عند الحاجة</h3>
+          <p>أي رسالة حساسة أو خصم مهم يمكن إيقافه حتى يوافق المسؤول.</p>
+        </div>
+        <div class="card">
+          <div class="icon green">📈</div>
+          <h3>تقارير يومية واضحة</h3>
+          <p>معرفة عدد الرسائل، الردود، العملاء المهتمين، والفرص الجديدة.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>الربط مع الأنظمة المختلفة</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>النظام</th>
+            <th>ماذا يفعل؟</th>
+            <th>الفائدة للعميل</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="pill">WhatsApp</span></td>
+            <td>إرسال واستقبال رسائل العملاء ومتابعة الردود.</td>
+            <td>تحويل المحادثات إلى فرص بيع ومتابعة منظمة.</td>
+          </tr>
+          <tr>
+            <td><span class="pill">Shopify / WooCommerce</span></td>
+            <td>جلب بيانات الطلبات، المنتجات، والعملاء من المتجر.</td>
+            <td>معرفة من اشترى ومتى وما المنتج المناسب لإعادة البيع.</td>
+          </tr>
+          <tr>
+            <td><span class="pill">Zoho CRM</span></td>
+            <td>إنشاء مهام لفريق المبيعات عند وجود عميل مهتم.</td>
+            <td>عدم ضياع العملاء الجادين وتحويلهم لفريق المبيعات فورًا.</td>
+          </tr>
+          <tr>
+            <td><span class="pill">Dashboard / Reports</span></td>
+            <td>عرض النتائج، الحملات، والفرص اليومية.</td>
+            <td>قرارات أوضح ومتابعة أفضل لأداء الفريق.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="section">
+      <h2>مثال بسيط من الواقع</h2>
+      <div class="timeline">
+        <div class="timeline-item">
+          <h3>1. عميل اشترى منتجًا من شهرين</h3>
+          <p>النظام يلاحظ أن العميل لم يشترِ مرة أخرى منذ فترة.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>2. تحليل العميل</h3>
+          <p>يقرأ النظام تاريخ الطلبات ويحدد هل العميل مناسب لحملة إعادة بيع.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>3. اقتراح رسالة</h3>
+          <p>الذكاء الصناعي يقترح رسالة واتساب مناسبة للعميل.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>4. فحص القواعد</h3>
+          <p>يتأكد النظام أن العميل لم يطلب إيقاف الرسائل وأن الوقت مناسب.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>5. إرسال ومتابعة</h3>
+          <p>يتم إرسال الرسالة، ولو رد العميل باهتمام يتم إنشاء مهمة في Zoho لفريق المبيعات.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>ما الذي يميز النظام؟</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3>ليس مجرد بوت واتساب</h3>
+          <p>البوت يرد على الرسائل فقط، أما هذا النظام فيفهم العميل، يحلل الطلبات، يقترح فرص بيع، وينظم عمل الفريق.</p>
+        </div>
+        <div class="card">
+          <h3>ليس إرسال رسائل عشوائية</h3>
+          <p>كل رسالة تمر على قواعد واضحة حتى لا يتم إزعاج العميل أو إرسال عرض غير مناسب.</p>
+        </div>
+        <div class="card">
+          <h3>قابل للتوسع</h3>
+          <p>يمكن إضافة خدمات لاحقًا مثل خدمة العملاء الذكية، متابعة الشحن، تقييم العملاء، وجمع التقييمات.</p>
+        </div>
+        <div class="card">
+          <h3>كل شيء مسجل</h3>
+          <p>أي قرار أو رسالة أو خطأ يتم تسجيله، مما يجعل النظام واضحًا وقابلًا للمراجعة.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>المراحل المقترحة للتنفيذ</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>المرحلة</th>
+            <th>ماذا سنبني؟</th>
+            <th>النتيجة</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>المرحلة 1</td>
+            <td>تأسيس قاعدة البيانات، استقبال الأحداث، وتسجيل العمليات.</td>
+            <td>أساس قوي ومنظم للنظام.</td>
+          </tr>
+          <tr>
+            <td>المرحلة 2</td>
+            <td>ربط واتساب واستقبال الرسائل والردود.</td>
+            <td>بدء التعامل مع محادثات العملاء.</td>
+          </tr>
+          <tr>
+            <td>المرحلة 3</td>
+            <td>ربط المتجر لجلب العملاء والطلبات والمنتجات.</td>
+            <td>فهم تاريخ كل عميل وطلباته.</td>
+          </tr>
+          <tr>
+            <td>المرحلة 4</td>
+            <td>إضافة الذكاء الصناعي لاختيار العملاء والرسائل.</td>
+            <td>اقتراحات ذكية لحملات إعادة البيع.</td>
+          </tr>
+          <tr>
+            <td>المرحلة 5</td>
+            <td>إضافة الموافقات، Zoho، والتقارير اليومية.</td>
+            <td>تشغيل تجاري منظم وقابل للمتابعة.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="value-box">
+      <h2>القيمة التجارية المتوقعة</h2>
+      <div class="grid grid-4">
+        <div>
+          <h3>زيادة إعادة الشراء</h3>
+          <p>استهداف العملاء المناسبين بدل إرسال رسائل عامة للجميع.</p>
+        </div>
+        <div>
+          <h3>توفير وقت الفريق</h3>
+          <p>تقليل المتابعة اليدوية وفرز العملاء تلقائيًا.</p>
+        </div>
+        <div>
+          <h3>تحسين خدمة العملاء</h3>
+          <p>عدم ضياع الردود المهمة أو العملاء المهتمين.</p>
+        </div>
+        <div>
+          <h3>قرارات أوضح</h3>
+          <p>تقارير يومية تساعد الإدارة على معرفة الأداء الحقيقي.</p>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <section class="cta">
+      <h2>النتيجة النهائية</h2>
+      <p>
+        سيحصل المتجر على نظام ذكي يساعده على فهم العملاء، زيادة فرص البيع، تنظيم المتابعة، وتقليل العمل اليدوي، مع الحفاظ على التحكم البشري في القرارات المهمة.
+      </p>
+    </section>
+
+ 
+  </main>
+</body>
+</html>
